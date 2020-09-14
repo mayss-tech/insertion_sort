@@ -1,0 +1,36 @@
+// procedure which insert a new card (x) and  put it in the right place
+PROCEDURE tri(VAR T : ARRAY_OF INTEGER, VAR n:INTEGER )
+VAR
+    i,j:INTEGER;
+BEGIN
+    FOR i FROM 1 TO n-1 DO
+        x:=T[i];
+        j:=i;
+    END_FOR
+    WHILE (j>0 and T[j-1]>x) DO
+        T[j]:=T[j-1];
+        j:=j-1;
+    END_WHILE
+    T[j]:=x;
+END
+ALGORITHM tri
+VAR
+    T: ARRAY_OF INTEGER[n];
+    i,n:INTEGER;
+BEGIN
+    //display the table before sorting
+    Write(Before sorting:);
+    FOR i FROM 1 TO n-1 DO
+        Write(T[i]=);
+    END_FOR
+    //call the procedure 
+    tri(T,n);
+    //display the table after sorting
+    Write(After sorting:);
+    FOR i FROM 1 TO n-1 DO
+        Write(T[i]=);
+    END_FOR
+END
+
+
+
